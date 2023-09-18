@@ -1,6 +1,6 @@
 {
-	"name": "Type Kana",
-	"description": "A quiz app to help you learn hiragana and katakana, the Japanese syllabaries",
+	"name": "Kana DT",
+	"description": "A quiz app to help you learn hiragana and katakana.",
 	"display": "standalone",
 	"start_url": "setup",
 	"background_color": "#fff6e0",

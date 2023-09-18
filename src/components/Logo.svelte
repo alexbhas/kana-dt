@@ -3,7 +3,7 @@
 </script>
 
 <svg
-	aria-label="Type Kana logotype"
+	aria-label="Kana DT logotype"
 	version="1.1"
 	width={size}
 	height={size}

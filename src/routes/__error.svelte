@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>{error?.message || status} · Type Kana</title>
+	<title>{error?.message || status} · Kana DT</title>
 </svelte:head>
 
 <h1>Error {status}</h1>
