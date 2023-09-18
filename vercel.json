@@ -1,0 +1,7 @@
+{
+	"public": true,
+	"cleanUrls": true,
+	"github": {
+		"silent": true
+	}
+}

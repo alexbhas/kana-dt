@@ -1,0 +1,100 @@
+@define-mixin light-theme {
+	--background-color: #fde6ff;
+
+	--background-contrast: #fcccff;
+	--background-contrast-light: #FCE0FF;
+
+	--text-color: #000000;
+	--text-color-light: #b677bd;
+	--text-color-lighter: #eabfee;
+
+	--accent-color: hsl(275, 59%, 65%);
+	--text-color-on-accent-color: white;
+	--border-color-on-accent-color: hsl(238, 61%, 8%);
+
+	--secondary-accent-color: hsl(195, 100%, 40%);
+	--text-color-on-secondary-accent-color: white;
+
+	--form-element-background: white;
+	--form-element-primary-color: hsl(220, 100%, 57%);
+	--form-element-primary-color-contrast: hsl(220, 100%, 64%);
+
+	--background-color-inverse: hsl(295, 100%, 10%);
+	--text-color-inverse: white;
+
+	--focus-color: #3946ff;
+	--text-color-on-focus-color: white;
+
+	--highlight-color: #ff0006;
+
+	--backdrop-color: rgba(0, 0, 0, 0.4);
+}
+
+@define-mixin dark-theme {
+	--background-color: hsl(240, 20%, 40%);
+	--background-contrast: hsl(240, 20%, 30%);
+	--background-contrast-light: hsl(240, 20%, 35%);
+
+	--text-color: hsl(0, 0%, 100%);
+	--text-color-light: hsl(0, 0%, 85%);
+	--text-color-lighter: hsl(0, 0%, 75%);
+
+	--accent-color: hsl(275, 59%, 65%);
+	--text-color-on-accent-color: white;
+	--border-color-on-accent-color: white;
+
+	--secondary-accent-color: hsl(195, 100%, 40%);
+	--text-color-on-secondary-accent-color: white;
+
+	--form-element-background: #422e44;
+	--form-element-primary-color: hsl(220, 100%, 57%);
+	--form-element-primary-color-contrast: hsl(220, 100%, 64%);
+
+	--background-color-inverse: hsl(240, 20%, 80%);
+	--text-color-inverse: hsl(165, 100%, 7%);
+
+	--focus-color: white;
+	--text-color-on-focus-color: black;
+
+	--highlight-color: #ff0006;
+
+	--backdrop-color: rgba(0, 0, 0, 0.4);
+}
+
+:root.light-theme {
+	@mixin light-theme;
+
+	/*
+		::backdrop pseudo-elements do not inherit anything, and that includes
+		variables :(
+
+		https://fullscreen.spec.whatwg.org/#::backdrop-pseudo-element
+	*/
+	::backdrop {
+		@mixin light-theme;
+	}
+}
+
+:root.dark-theme {
+	@mixin dark-theme;
+
+	::backdrop {
+		@mixin dark-theme;
+	}
+}
+
+:root:not(.theme-set-by-js) {
+	@mixin light-theme;
+
+	::backdrop {
+		@mixin light-theme;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		@mixin dark-theme;
+
+		::backdrop {
+			@mixin dark-theme;
+		}
+	}
+}
